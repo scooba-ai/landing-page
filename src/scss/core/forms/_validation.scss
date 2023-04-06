@@ -1,0 +1,72 @@
+@keyframes showResult{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+@keyframes hideResult{
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+
+.form{
+    &-error{
+        &-message{
+          color: $danger;
+          margin-top: 0.5rem;
+          display: block;
+          font-size: .75rem;
+          .form-validation-floating &{
+            position: absolute;
+            right: 0;
+            bottom: calc(100% + .25rem);
+            color: $white;
+            font-size: .675rem;
+            line-height: 1;
+            background: lighten($danger,4%);
+            padding: 0.3rem 0.5rem;
+            z-index: 1;
+            border-radius: $border-radius-sm;
+            white-space: nowrap;
+            &:before{
+              position: absolute;
+              content: "";
+              height: 0;
+              width: 0;
+              border-right: 6px solid lighten($danger,4%);
+              border-left: 6px solid transparent;
+              right: 10px;
+              border-bottom: 6px solid transparent;
+              bottom: -6px;
+            }
+          }
+        }
+    }
+    &-result{
+        opacity: 0;
+        padding: .5rem 1rem;
+        border-radius: $border-radius;
+        animation: hideResult .8s forwards;
+        display: none;
+        * {
+            color: currentColor;
+        }
+        &-show{
+            animation: showResult .8s forwards;
+        }
+        &-success{
+            background: mix($success,$white, 20%);
+            color: $success;
+        }
+        &-error{
+            background: mix($danger,$white, 20%);
+            color: $danger;
+        }
+    }
+}

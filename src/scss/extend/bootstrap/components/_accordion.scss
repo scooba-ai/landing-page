@@ -1,0 +1,72 @@
+.accordion{
+    --#{$prefix}accordion-btn-padding-y:1.375rem;
+    --#{$prefix}accordion-body-padding-y:1.375rem;
+    --#{$prefix}accordion-active-bg: transparent;
+    .is-dark &{
+        --#{$prefix}accordion-btn-color: #{$gray-300};
+        --#{$prefix}accordion-active-color: #{$white};
+        --#{$prefix}accordion-color: #{$gray-400};
+        --#{$prefix}accordion-bg: #{lighten($darker,2%)};
+        --#{$prefix}accordion-border-color: #{lighten($dark,2%)};
+        --#{$prefix}accordion-btn-icon: #{escape-svg($accordion-button-icon-dark)};
+        --#{$prefix}accordion-btn-active-icon: #{escape-svg($accordion-button-active-icon-dark)};
+    }
+    &-button{
+        font-size: 1.125rem;
+        font-weight: 500;
+        &:focus,&:not(.collapsed){ 
+            box-shadow: none;
+        }
+    }
+    &-body{
+        padding-top: 0;
+    }
+    &-separated{
+        .accordion{
+            &-item{
+                border-radius: $border-radius-xl ;
+                border: var(--#{$prefix}accordion-border-width) solid var(--#{$prefix}accordion-border-color);
+                &:not(:last-child){
+                    margin-bottom: .685rem;
+                }
+            }
+            &-button{
+                --#{$prefix}accordion-btn-bg: transparent;
+                border-radius: var(--#{$prefix}accordion-inner-border-radius) !important;
+            }
+        }
+    }
+    &-flush{
+        --#{$prefix}accordion-btn-padding-x: 0;
+        --#{$prefix}accordion-body-padding-x:0;
+        --#{$prefix}accordion-bg: transparent;
+        --#{$prefix}accordion-active-bg: transparent;
+        margin: -$accordion-padding-y 0;
+        .accordion{
+            &-button{
+                box-shadow:none
+            }
+        }
+    }
+    &-plus-minus{
+        .accordion-button{
+            &:after{
+                background-image: none;
+                font-family: $nio-font-family;
+                content: $ni-plus-sm;
+            }
+            &:not(.collapsed):after{
+                content: $ni-minus-sm;
+            }
+        }
+    }
+    &-icon{
+        &-accent{
+            .accordion-button{
+                &:after{
+                    color: $accent-color;
+                }
+            }
+        }
+    }
+}

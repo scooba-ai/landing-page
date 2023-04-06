@@ -1,0 +1,7 @@
+.link{
+    display: inline-flex;
+    align-items: center;
+    span + .icon{
+        margin-left: .75rem;
+    }
+}

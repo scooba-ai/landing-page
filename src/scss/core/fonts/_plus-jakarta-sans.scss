@@ -1,0 +1,49 @@
+$font_url: '../fonts/';
+
+@font-face {
+    font-family: 'Plus Jakarta Sans';
+    src: local('Plus Jakarta Sans ExtraBold'), local('PlusJakartaSans-ExtraBold'),
+        url('#{$font_url}PlusJakartaSans-ExtraBold.woff2') format('woff2'),
+        url('#{$font_url}PlusJakartaSans-ExtraBold.woff') format('woff'),
+        url('#{$font_url}PlusJakartaSans-ExtraBold.ttf') format('truetype'),
+        url('#{$font_url}PlusJakartaSans-ExtraBold.svg#PlusJakartaSans-ExtraBold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Plus Jakarta Sans';
+    src: local('Plus Jakarta Sans Bold'), local('PlusJakartaSans-Bold'),
+        url('#{$font_url}PlusJakartaSans-Bold.woff2') format('woff2'),
+        url('#{$font_url}PlusJakartaSans-Bold.woff') format('woff'),
+        url('#{$font_url}PlusJakartaSans-Bold.ttf') format('truetype'),
+        url('#{$font_url}PlusJakartaSans-Bold.svg#PlusJakartaSans-Bold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Plus Jakarta Sans';
+    src: local('Plus Jakarta Sans Medium'), local('PlusJakartaSans-Medium'),
+        url('#{$font_url}PlusJakartaSans-Medium.woff2') format('woff2'),
+        url('#{$font_url}PlusJakartaSans-Medium.woff') format('woff'),
+        url('#{$font_url}PlusJakartaSans-Medium.ttf') format('truetype'),
+        url('#{$font_url}PlusJakartaSans-Medium.svg#PlusJakartaSans-Medium') format('svg');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Plus Jakarta Sans';
+    src: local('Plus Jakarta Sans Regular'), local('PlusJakartaSans-Regular'),
+        url('#{$font_url}PlusJakartaSans-Regular.woff2') format('woff2'),
+        url('#{$font_url}PlusJakartaSans-Regular.woff') format('woff'),
+        url('#{$font_url}PlusJakartaSans-Regular.ttf') format('truetype'),
+        url('#{$font_url}PlusJakartaSans-Regular.svg#PlusJakartaSans-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}

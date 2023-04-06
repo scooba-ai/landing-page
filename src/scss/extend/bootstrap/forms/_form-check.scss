@@ -1,0 +1,53 @@
+@use "sass:math";
+
+.form-check{
+    display: flex;
+    align-items: flex-start;
+    &-label{
+        line-height: $form-check-label-line-height;
+        padding-left: $form-check-label-gap;
+        font-size: $form-check-label-font-size;
+        font-weight: 400;
+    }
+    &-input{
+        margin-top: ($form-check-label-line-height - $form-check-input-width) * .5;
+    }
+    &-lg{
+        .form-check{
+            &-label{
+                line-height: $form-check-label-line-height-lg;
+                padding-left: $form-check-label-gap-lg;
+                font-size: $form-check-label-font-size-lg;
+            }
+            &-input{
+                margin-top: math.div($form-check-label-line-height-lg - $form-check-input-size-lg, 2);
+                height: $form-check-input-size-lg;
+                width: $form-check-input-size-lg;
+            }
+        }
+        &.form-switch{
+            .form-check-input{
+                width: $form-switch-width-lg;
+            }
+        }
+    }
+    &-xl{
+        .form-check{
+            &-label{
+                line-height: $form-check-label-line-height-xl;
+                padding-left: $form-check-label-gap-xl;
+                font-size: $form-check-label-font-size-xl;
+            }
+            &-input{
+                margin-top: math.div($form-check-label-line-height-xl - $form-check-input-size-xl, 2);
+                height: $form-check-input-size-xl;
+                width: $form-check-input-size-xl;
+            }
+        }
+        &.form-switch{
+            .form-check-input{
+                width: $form-switch-width-xl;
+            }
+        }
+    }
+}

@@ -1,0 +1,251 @@
+$utilities: map-merge(
+  $utilities, (
+    "shadow": (
+      property: box-shadow,
+      class: shadow,
+      values: (
+        none: none,
+        null: $box-shadow,
+        tiny: $box-shadow-tiny,
+        xs: $box-shadow-xs,
+        sm: $box-shadow-sm,
+        lg: $box-shadow-lg,
+      )
+    ),
+    "height": (
+      responsive: true,
+      property: height,
+      class: h,
+      values: (
+        25: 25%,
+        50: 50%,
+        75: 75%,
+        100: 100%,
+        auto: auto,
+        1rem: 1rem,
+        '1-5rem': 1.5rem,
+        2rem: 2rem,
+        3rem: 3rem,
+        4rem: 4rem,
+        5rem: 5rem,
+        6rem: 6rem,
+        7rem: 7rem,
+        8rem: 8rem,
+        10rem: 10rem,
+        12rem: 12rem,
+        16rem: 16rem,
+      )
+    ),
+    "width": (
+      responsive: true,
+      property: width,
+      class: w,
+      values: (
+        25: 25%,
+        50: 50%,
+        75: 75%,
+        100: 100%,
+        auto: auto,
+        1rem: 1rem,
+        '1-5rem': 1.5rem,
+        2rem: 2rem,
+        3rem: 3rem,
+        4rem: 4rem,
+        5rem: 5rem,
+        6rem: 6rem,
+        7rem: 7rem,
+        8rem: 8rem,
+        10rem: 10rem,
+        12rem: 12rem,
+        16rem: 16rem,
+      )
+    ),
+
+    "max-height": (
+      property: max-height,
+      class: mh,
+      values: (100: 100%, 75vh: 75vh, 50vh: 50vh, 100vh: 100vh)
+    ),
+    "font-weight": (
+      property: font-weight,
+      class: fw,
+      values: (
+        light: $font-weight-light,
+        lighter: $font-weight-lighter,
+        normal: $font-weight-normal,
+        medium: $font-weight-medium,
+        bold: $font-weight-bold,
+        bolder: $font-weight-bolder
+      )
+    ),
+    "text-tracking": (
+      property: letter-spacing,
+      class: text-tracking,
+      values: (
+        1: 0.05em,
+        2: 0.1em,
+        n1: -0.05em,
+        n2: -0.1em,
+      )
+    ),
+    "bg-opacity": (
+      css-var: true,
+      class: bg-opacity,
+      values: (
+        10: .1,
+        20: .2,
+        25: .25,
+        30: .3,
+        40: .4,
+        50: .5,
+        60: .6,
+        70: .7,
+        75: .75,
+        80: .8,
+        90: .9,
+        100: 1
+      )
+    ),
+    "opacity": (
+      property: opacity,
+      values: (
+        0: 0,
+        10: .1,
+        20: .2,
+        25: .25,
+        30: .3,
+        40: .4,
+        50: .5,
+        60: .6,
+        70: .7,
+        75: .75,
+        80: .8,
+        90: .9,
+        100: 1
+      )
+    ),
+
+    "rounded": (
+      property: border-radius,
+      class: rounded,
+      values: (
+        null: var(--#{$prefix}border-radius),
+        0: 0,
+        1: var(--#{$prefix}border-radius-sm),
+        2: var(--#{$prefix}border-radius),
+        3: var(--#{$prefix}border-radius-lg),
+        4: var(--#{$prefix}border-radius-xl),
+        5: var(--#{$prefix}border-radius-2xl),
+        6: var(--#{$prefix}border-radius-3xl),
+        7: var(--#{$prefix}border-radius-4xl),
+        circle: 50%,
+        pill: var(--#{$prefix}border-radius-pill)
+      )
+    ),
+    "rounded-top": (
+      property: border-top-left-radius border-top-right-radius,
+      class: rounded-top,
+      values: (
+        null: var(--#{$prefix}border-radius),
+        0: 0,
+        1: var(--#{$prefix}border-radius-sm),
+        2: var(--#{$prefix}border-radius),
+        3: var(--#{$prefix}border-radius-lg),
+        4: var(--#{$prefix}border-radius-xl),
+        5: var(--#{$prefix}border-radius-2xl),
+        6: var(--#{$prefix}border-radius-3xl),
+        7: var(--#{$prefix}border-radius-4xl),
+        circle: 50%,
+        pill: var(--#{$prefix}border-radius-pill)
+      )
+    ),
+    "rounded-end": (
+      property: border-top-right-radius border-bottom-right-radius,
+      class: rounded-end,
+      values: (
+        null: var(--#{$prefix}border-radius),
+        0: 0,
+        1: var(--#{$prefix}border-radius-sm),
+        2: var(--#{$prefix}border-radius),
+        3: var(--#{$prefix}border-radius-lg),
+        4: var(--#{$prefix}border-radius-xl),
+        5: var(--#{$prefix}border-radius-2xl),
+        6: var(--#{$prefix}border-radius-3xl),
+        7: var(--#{$prefix}border-radius-4xl),
+        circle: 50%,
+        pill: var(--#{$prefix}border-radius-pill)
+      )
+    ),
+    "rounded-bottom": (
+      property: border-bottom-right-radius border-bottom-left-radius,
+      class: rounded-bottom,
+      values: (
+        null: var(--#{$prefix}border-radius),
+        0: 0,
+        1: var(--#{$prefix}border-radius-sm),
+        2: var(--#{$prefix}border-radius),
+        3: var(--#{$prefix}border-radius-lg),
+        4: var(--#{$prefix}border-radius-xl),
+        5: var(--#{$prefix}border-radius-2xl),
+        6: var(--#{$prefix}border-radius-3xl),
+        7: var(--#{$prefix}border-radius-4xl),
+        circle: 50%,
+        pill: var(--#{$prefix}border-radius-pill)
+      )
+    ),
+    "rounded-start": (
+      property: border-bottom-left-radius border-top-left-radius,
+      class: rounded-start,
+      values: (
+        null: var(--#{$prefix}border-radius),
+        0: 0,
+        1: var(--#{$prefix}border-radius-sm),
+        2: var(--#{$prefix}border-radius),
+        3: var(--#{$prefix}border-radius-lg),
+        4: var(--#{$prefix}border-radius-xl),
+        5: var(--#{$prefix}border-radius-2xl),
+        6: var(--#{$prefix}border-radius-3xl),
+        7: var(--#{$prefix}border-radius-4xl),
+        circle: 50%,
+        pill: var(--#{$prefix}border-radius-pill)
+      )
+    ),
+    "position": (
+      responsive: true,
+      property: position,
+      values: static relative absolute fixed sticky
+    ),
+    "top": (
+      responsive: true,
+      property: top,
+      values: $position-values
+    ),
+    "bottom": (
+      responsive: true,
+      property: bottom,
+      values: $position-values
+    ),
+    "start": (
+      responsive: true,
+      property: left,
+      class: start,
+      values: $position-values
+    ),
+    "end": (
+      responsive: true,
+      property: right,
+      class: end,
+      values: $position-values
+    ),
+    "translate-middle": (
+      responsive: true,
+      property: transform,
+      class: translate-middle,
+      values: (
+        null: translate(-50%, -50%),
+        x: translateX(-50%),
+        y: translateY(-50%),
+      )
+    ),
+  )
+);

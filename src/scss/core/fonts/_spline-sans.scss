@@ -1,0 +1,37 @@
+$font_url: '../fonts/';
+
+@font-face {
+    font-family: 'Spline Sans';
+    src: local('Spline Sans Medium'), local('SplineSans-Medium'),
+        url('#{$font_url}SplineSans-Medium.woff2') format('woff2'),
+        url('#{$font_url}SplineSans-Medium.woff') format('woff'),
+        url('#{$font_url}SplineSans-Medium.ttf') format('truetype'),
+        url('#{$font_url}SplineSans-Medium.svg#SplineSans-Medium') format('svg');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Spline Sans';
+    src: local('Spline Sans Regular'), local('SplineSans-Regular'),
+        url('#{$font_url}SplineSans-Regular.woff2') format('woff2'),
+        url('#{$font_url}SplineSans-Regular.woff') format('woff'),
+        url('#{$font_url}SplineSans-Regular.ttf') format('truetype'),
+        url('#{$font_url}SplineSans-Regular.svg#SplineSans-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Spline Sans';
+    src: local('Spline Sans Bold'), local('SplineSans-Bold'),
+        url('#{$font_url}SplineSans-Bold.woff2') format('woff2'),
+        url('#{$font_url}SplineSans-Bold.woff') format('woff'),
+        url('#{$font_url}SplineSans-Bold.ttf') format('truetype'),
+        url('#{$font_url}SplineSans-Bold.svg#SplineSans-Bold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}

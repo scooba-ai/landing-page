@@ -1,0 +1,182 @@
+$overline-title-size: .875rem;
+$overline-title-weight: 700;
+$overline-title-color: $base-text;
+$overline-title-tracking: 0.1em;
+
+$caption-text-size: .875rem;
+$caption-text-weight: 400;
+
+$lead-text-size: .875rem;
+$lead-text-weight: 500;
+
+$sub-text-size: .875rem;
+$sub-text-weight: 400;
+
+.overline-title{
+    font-size: $overline-title-size;
+    text-transform: uppercase;
+    font-weight: $overline-title-weight;
+    letter-spacing: $overline-title-tracking;
+    color: $overline-title-color;
+}
+
+.caption-text{
+    font-size: $caption-text-size;
+    font-weight: $caption-text-weight;
+}
+
+.lead-text{
+    font-size: $lead-text-size;
+    font-weight: $lead-text-weight;
+}
+
+.sub-text{
+    font-size: $sub-text-size;
+    font-weight: $sub-text-weight;
+}
+
+.smaller{
+    font-size: 0.75rem;
+}
+
+.small{
+    font-size: 0.875rem;
+}
+
+.list{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-top: calc(-1 * var(--bs-gutter-y));
+    margin-right: calc(-0.5 * var(--bs-gutter-x));
+    margin-left: calc(-0.5 * var(--bs-gutter-x));
+    > *{
+        padding-right: calc(var(--bs-gutter-x) * 0.5);
+        padding-left: calc(var(--bs-gutter-x) * 0.5);
+        margin-top: var(--bs-gutter-y);
+    }
+    li{
+        display: flex;
+        line-height: 1.5rem;
+        .text-center &{
+            justify-content: center;
+        }
+        
+        @include media-breakpoint-up(sm){
+            .text-sm-start &{
+                justify-content: flex-start;
+            }
+            .text-sm-center &{
+                justify-content: center;
+            }
+        }
+    
+        @include media-breakpoint-up(md){
+            .text-md-start &{
+                justify-content: flex-start;
+            }
+            .text-sm-center &{
+                justify-content: center;
+            }
+        }
+    
+        @include media-breakpoint-up(lg){
+            .text-lg-start &{
+                justify-content: flex-start;
+            }
+            .text-sm-center &{
+                justify-content: center;
+            }
+        }
+    
+        @include media-breakpoint-up(xl){
+            .text-xl-start &{
+                justify-content: flex-start;
+            }
+            .text-sm-center &{
+                justify-content: center;
+            }
+        }
+    
+        @include media-breakpoint-up(xxl){
+            .text-xxl-start &{
+                justify-content: flex-start;
+            }
+            .text-sm-center &{
+                justify-content: center;
+            }
+        }
+        > .icon{
+            line-height: 1.5rem;
+            margin-right: .625rem;
+            font-size: 1rem;
+        }
+    }
+    &-sap-border li{
+        position: relative;
+        &:not(:last-child):after{
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: calc(var(--bs-gutter-y) * -0.5);
+            height: 1px;
+            background-color: rgba($black,.05);
+            .is-dark &{
+                background-color: rgba($white,.05);
+            }
+        }
+    }
+    &-row{
+        flex-direction: row;
+    }
+
+    .text-center &{
+        justify-content: center;
+    }
+    
+    @include media-breakpoint-up(sm){
+        .text-sm-start &{
+            justify-content: flex-start;
+        }
+        .text-sm-center &{
+            justify-content: center;
+        }
+    }
+
+    @include media-breakpoint-up(md){
+        .text-md-start &{
+            justify-content: flex-start;
+        }
+        .text-sm-center &{
+            justify-content: center;
+        }
+    }
+
+    @include media-breakpoint-up(lg){
+        .text-lg-start &{
+            justify-content: flex-start;
+        }
+        .text-sm-center &{
+            justify-content: center;
+        }
+    }
+
+    @include media-breakpoint-up(xl){
+        .text-xl-start &{
+            justify-content: flex-start;
+        }
+        .text-sm-center &{
+            justify-content: center;
+        }
+    }
+
+    @include media-breakpoint-up(xxl){
+        .text-xxl-start &{
+            justify-content: flex-start;
+        }
+        .text-sm-center &{
+            justify-content: center;
+        }
+    }
+}

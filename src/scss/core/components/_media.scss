@@ -1,0 +1,66 @@
+@use "sass:math";
+
+$media-border: 2px;
+$media-normal-radius:.25rem;
+$media-rounded-radius: $media-normal-radius * 2;
+$media-circle-radius: $border-radius-pill;
+$media-font-size:1rem;
+$media-negative-start-gap: 0.5rem;
+
+
+.media{
+    width: $size-rg;
+    height: $size-rg;
+    border-radius: $media-normal-radius;
+    font-size: math.div($size-rg,3);
+    flex-shrink: 0;
+    .icon{
+        font-size: math.div($size-rg,2);
+    }
+    .icon.half{
+        font-size: math.div($size-rg,4);
+    }
+    svg.icon{
+        height: math.div($size-rg,2);
+        width: math.div($size-rg,2);
+    }
+    img{
+        border-radius: inherit;
+    }
+    &-rounded{
+        border-radius: $media-rounded-radius;
+    }
+    &-circle{
+        border-radius: $media-circle-radius;
+    }
+    &-sharp{
+        border-radius: 0;
+    }
+    &-middle{
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+    &-border{
+        border-width: $media-border;
+        border-style: solid;
+    }
+}
+
+@each $size, $value in $sizes {
+    .media-#{$size}{
+        width: $value;
+        height: $value;
+        font-size: math.div($value,3);
+        .icon{
+            font-size: math.div($value,2);
+        }
+        .icon.half{
+            font-size: math.div($value,4);
+        }
+        svg.icon{
+            height: math.div($value,2);
+            width: math.div($value,2);
+        }
+    }
+}

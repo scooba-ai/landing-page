@@ -1,0 +1,162 @@
+
+@mixin text-bg-soft-variant(
+    $color,
+    $background: mix($color, $white, 12%),
+    $border: transparent
+  ) {
+    color: #{$color};
+    background-color: #{$background} !important;
+    border-color: #{$border};
+}
+@mixin text-bg-soft-outline-variant(
+    $color,
+    $background: mix($color, $white, 12%),
+    $border: mix($color, $white, 30%)
+  ) {
+    color: #{$color};
+    background-color: #{$background} !important;
+    border-color: #{$border};
+}
+
+@mixin text-bg-soft-variant-dark(
+    $color,
+    $background: mix($color, $dark, 12%),
+    $border: transparent
+  ) {
+    color: #{$color};
+    background-color: #{$background} !important;
+    border-color: #{$border};
+}
+@mixin text-bg-soft-outline-variant-dark(
+    $color,
+    $background: mix($color, $dark, 12%),
+    $border: mix($color, $dark, 30%)
+  ) {
+    color: #{$color};
+    background-color: #{$background} !important;
+    border-color: #{$border};
+}
+
+@each $name, $value in $theme-colors {
+    $color-rgb: to-rgb($value);
+    .hover-bg-#{$name}:hover {
+      background-color: RGBA($color-rgb, var(--#{$prefix}hover-bg-opacity, 1)) if($enable-important-utilities, !important, null);
+    }
+    .hover-text-#{$name}:hover {
+      color: RGBA($color-rgb, var(--#{$prefix}hover-text-opacity, 1)) if($enable-important-utilities, !important, null);
+    }
+    .text-bg-#{$name}-soft {
+        @include text-bg-soft-variant($value);
+    }
+    .text-bg-#{$name}-soft-outline {
+        @include text-bg-soft-outline-variant($value);
+    }
+    .is-dark{
+        .text-bg-#{$name}-soft {
+            @include text-bg-soft-variant-dark($value);
+        }
+        .text-bg-#{$name}-soft-outline {
+            @include text-bg-soft-outline-variant-dark($value);
+        }
+        .link-#{$name} {
+          color: $value !important;
+          &:hover,
+          &:focus {
+            color: shade-color($value, $link-shade-percentage) !important;
+          }
+        }
+    }
+}
+
+@each $name, $value in $colors {
+    $color-rgb: to-rgb($value);
+    .bg-#{$name} {
+      background-color: RGBA($color-rgb, var(--#{$prefix}bg-opacity, 1)) if($enable-important-utilities, !important, null);
+    }
+    .text-#{$name} {
+      color: RGBA($color-rgb, var(--#{$prefix}text-opacity, 1)) if($enable-important-utilities, !important, null);
+    }
+    .hover-bg-#{$name}:hover {
+      background-color: RGBA($color-rgb, var(--#{$prefix}hover-bg-opacity, 1)) if($enable-important-utilities, !important, null);
+    }
+    .hover-text-#{$name}:hover {
+      color: RGBA($color-rgb, var(--#{$prefix}hover-text-opacity, 1)) if($enable-important-utilities, !important, null);
+    }
+
+    .text-bg-#{$name}-soft {
+      @include text-bg-soft-variant($value);
+    }
+    .text-bg-#{$name}-soft-outline {
+        @include text-bg-soft-outline-variant($value);
+    }
+    .is-dark{
+        .text-bg-#{$name}-soft {
+            @include text-bg-soft-variant-dark($value);
+        }
+        .text-bg-#{$name}-soft-outline {
+            @include text-bg-soft-outline-variant-dark($value);
+        }
+    }
+}
+  
+
+@each $name, $value in $text-ext-colors {
+    .text-#{$name} {
+        color: #{$value} !important;
+    }
+}
+
+@each $name, $value in $text-ext-colors-dark {
+    .is-dark .text-#{$name} {
+        color: #{$value} !important;
+    }
+}
+
+
+@each $name, $value in $text-ext-colors {
+    .link-#{$name} {
+      color: $value !important;
+      &:hover,
+      &:focus {
+          color: shade-color($value, 30%) !important;
+      }
+    }
+}
+
+
+@each $name, $value in $bg-gradient {
+  .bg-gradient-#{$name} {
+    background: $value;
+  }
+}
+@each $name, $value in $text-gradient {
+  .text-gradient-#{$name} {
+    background: $value;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+$gradient-angle: 0, 90, 180, 270;
+
+@each $value in $gradient-angle {
+  .gradient-angle-#{$value}{
+    --#{$prefix}bg-gradient-angle: #{$value}deg;
+  }
+}
+
+.is-dark{
+  strong{
+    color: $white;
+  }  
+  .link-base,.link-dark{
+    color: $gray-300 !important;
+    &:hover,
+    &:focus {
+        color: $white !important;
+    }
+  }
+  .text-muted{
+    color: $gray-400 !important;
+  }
+}

@@ -1,0 +1,61 @@
+.nav{
+    &-tabs{
+        border-color: $light;
+        .nav-link{
+            border: 0;
+        }
+        &-stretch{
+            border-bottom: 0;
+            margin-left: -1.25rem;
+            margin-right: -1.25rem;
+            li{
+                flex-grow: 1;
+                border-bottom: 1px solid $border-light;
+                padding: 0 1.25rem;
+            }
+        }
+    }
+    &-link{
+        position: relative;
+        display: inline-flex;
+        gap: .625rem;
+        align-items: center;
+        white-space: nowrap;
+        color: $base-text;
+        font-weight: 700;
+        padding: .75rem 0;
+        .icon{
+            font-size: 1.25rem;
+        }
+        &:after{
+            position: absolute;
+            content: '';
+            height: 2px;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+            background: $accent-color;
+            opacity: 0;
+        }
+        &.active{
+            color: $base-color;
+            &:after{
+                opacity: 1;
+            }
+        }
+    }
+}
+
+@include media-breakpoint-up(xl){
+    .nav{
+        &-tabs{
+            &-stretch{
+                margin-left: -1.875rem;
+                margin-right: -1.875rem;
+                li{
+                    padding: 0 1.875rem;
+                }
+            }
+        }
+    }
+}

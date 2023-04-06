@@ -1,0 +1,19 @@
+// nk body
+.nk{
+    &-body{
+        outline: none;
+    }
+    &-app{
+        &-root{
+            outline: none;
+            min-height: 100vh;
+            min-height: 100dvh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+    }
+    &-footer{
+        margin-top: auto;
+    }
+}

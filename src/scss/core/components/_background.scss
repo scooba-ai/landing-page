@@ -1,0 +1,239 @@
+.has-mask,.has-shape{
+    position: relative;
+    > *:where(:not(.nk-mask):not(.nk-shape):not(.ignore-mask):not(.ignore-shape)){
+        position: relative;
+        z-index: 5;
+    }
+    > *:where(.nk-header){
+        z-index: 6;
+    }
+}
+.nk-mask{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    pointer-events: none;
+}
+.bg{
+    &-pattern{
+        &-dot{
+            background-image: url("../images/pattern/dot-a.png");
+            background-position: center;
+            &-sm{
+                background-image: url("../images/pattern/dot-a.png");
+                background-size: 20px 20px;
+                background-position: center;
+            }
+            &-white{
+                background-image: url("../images/pattern/dot-a-white.png");
+                background-position: center;
+            }
+            &-white-sm{
+                background-image: url("../images/pattern/dot-a-white.png");
+                background-size: 20px 20px;
+                background-position: center;
+            }
+        }
+        &-noise{
+            &-a{
+                background-image: url("../images/pattern/noise-a.png");
+                background-size: cover;
+            }
+        }
+    }
+}
+.bg-gradient{
+    &-a{
+        background-image: url("../images/gradient/a-blur.png"), url("../images/gradient/a.png");
+        background-size: 2560px, cover;
+        background-position: center 100%;
+        background-repeat: no-repeat, repeat no-repeat;
+    }
+}
+.bg-blend-top{
+    -webkit-mask-image: linear-gradient(180deg,transparent 0, $black 40%);
+    mask-image: linear-gradient(180deg,transparent 0, $black 40%);
+}
+.bg-blend-bottom{
+    -webkit-mask-image: linear-gradient(180deg, $black 60%,transparent 100%);
+    mask-image: linear-gradient(180deg, $black 60%,transparent 100%);
+}
+.bg-blend-around{
+    -webkit-mask-image: radial-gradient(ellipse, $black 50%, transparent 90%);
+    mask-image: radial-gradient(ellipse, $black 50%, transparent 90%);
+}
+
+.bg-angle{
+    background-repeat: repeat no-repeat;
+    &-top{
+        background-position: 0 0;
+    }
+    &-bottom{
+        background-position: 100% 100%;
+    }
+    &-flip{
+        transform: scale(-1,-1);
+    }
+    &-white{
+        $fill-color: $white;
+        background-image: escape-svg(url("data:image/svg+xml,<svg viewBox='0 0 1920 55' xmlns='http://www.w3.org/2000/svg'><path d='M1921 55H0V53.1854L1921 0V55Z' fill='#{$fill-color}'/></svg>"));
+    }
+    &-black{
+        $fill-color: $black;
+        background-image: escape-svg(url("data:image/svg+xml,<svg viewBox='0 0 1920 55' xmlns='http://www.w3.org/2000/svg'><path d='M1921 55H0V53.1854L1921 0V55Z' fill='#{$fill-color}'/></svg>"));
+    }
+    &-dark{
+        $fill-color: $dark;
+        background-image: escape-svg(url("data:image/svg+xml,<svg viewBox='0 0 1920 55' xmlns='http://www.w3.org/2000/svg'><path d='M1921 55H0V53.1854L1921 0V55Z' fill='#{$fill-color}'/></svg>"));
+    }
+    &-darker{
+        $fill-color: $darker;
+        background-image: escape-svg(url("data:image/svg+xml,<svg viewBox='0 0 1920 55' xmlns='http://www.w3.org/2000/svg'><path d='M1921 55H0V53.1854L1921 0V55Z' fill='#{$fill-color}'/></svg>"));
+    }
+}
+
+.nk-shape{
+    position: absolute;
+    z-index: 1;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    pointer-events: none;
+}
+
+.bg-shape{
+    &-blur{
+        &-a{
+            height: 1168px;
+            width: 898px;
+            background-image: url("../images/shape/blur-a.png");
+        }
+        &-b{
+            height: 762px;
+            width: 586px;
+            background-image: url("../images/shape/blur-b.png");
+        }
+        &-c{
+            height: 1036px;
+            width: 1036px;
+            background-image: url("../images/shape/blur-c.png");
+        }
+        &-d{
+            height: 1160px;
+            width: 1160px;
+            background-image: url("../images/shape/blur-d.png");
+        }
+        &-e{
+            height: 1100px;
+            width: 1100px;
+            background-image: url("../images/shape/blur-e.png");
+        }
+        &-f{
+            height: 1171px;
+            width: 1170px;
+            background-image: url("../images/shape/blur-f.png");
+        }
+        &-g{
+            height: 1348px;
+            width: 1347px;
+            background-image: url("../images/shape/blur-g.png");
+        }
+        &-h{
+            height: 1081px;
+            width: 1081px;
+            background-image: url("../images/shape/blur-h.png");
+        }
+        &-i{
+            height: 1171px;
+            width: 1170px;
+            background-image: url("../images/shape/blur-i.png");
+        }
+        &-j{
+            height: 1220px;
+            width: 1220px;
+            background-image: url("../images/shape/blur-j.png");
+        }
+        &-k{
+            height: 974px;
+            width: 973px;
+            background-image: url("../images/shape/blur-k.png");
+        }
+        &-l{
+            height: 1086px;
+            width: 1087px;
+            background-image: url("../images/shape/blur-l.png");
+        }
+        &-m{
+            height: 1160px;
+            width: 1160px;
+            background-image: url("../images/shape/blur-m.png");
+        }
+        &-n{
+            height: 871px;
+            width: 751px;
+            background-image: url("../images/shape/blur-n.png");
+        }
+        &-o{
+            height: 1099px;
+            width: 1017px;
+            background-image: url("../images/shape/blur-o.png");
+        }
+        &-p{
+            height: 1101px;
+            width: 1100px;
+            background-image: url("../images/shape/blur-p.png");
+        }
+        &-q{
+            height: 866px;
+            width: 928px;
+            background-image: url("../images/shape/blur-q.png");
+        }
+        &-r{
+            height: 883px;
+            width: 883px;
+            background-image: url("../images/shape/blur-r.png");
+        }
+    }
+    &-border{
+        &-a{
+            height: 481px;
+            width: 572px;
+            background-image: url("../images/shape/border-a.png");
+        }
+        &-b{
+            height: 237px;
+            width: 237px;
+            background-image: url("../images/shape/border-b.png");
+        }
+        &-c{
+            height: 949px;
+            width: 949px;
+            background-image: url("../images/shape/border-c.png");
+        }
+        &-d{
+            height: 237px;
+            width: 237px;
+            background-image: url("../images/shape/border-d.png");
+        }
+        &-e{
+            height: 175px;
+            width: 175px;
+            background-image: url("../images/shape/border-e.png");
+        }
+        &-f{
+            height: 256px;
+            width: 257px;
+            background-image: url("../images/shape/border-f.png");
+        }
+    }
+    &-wormhole{
+        &-a{
+            height: 990px;
+            width: 811px;
+            background-image: url("../images/wormhole-a.png");
+        }
+    }
+}

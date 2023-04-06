@@ -1,0 +1,79 @@
+.pricing{
+    position: relative;
+    border-radius: $border-radius-xl;
+    box-shadow: $box-shadow-xs;
+    &-toggle{
+        position: relative;
+        display: flex;
+        border:$pricing-toggle-border-width solid $pricing-toggle-border-color;
+        background: $pricing-toggle-bg;
+        border-radius: $pricing-toggle-width;
+        height: $pricing-toggle-height;
+        width: $pricing-toggle-width;
+        &-wrap{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        &-ball{
+            position: absolute;
+            height: $pricing-toggle-ball-size;
+            width: $pricing-toggle-ball-size;
+            left: $pricing-toggle-ball-gap;
+            top: 50%;
+            transform: translateY(-50%);
+            border-radius: 50%;
+            background: $pricing-toggle-ball-bg;
+            transition: all .3s ease;
+            .pricing-yearly & {
+                left: $pricing-toggle-width - $pricing-toggle-ball-size - $pricing-toggle-ball-gap * 2;
+            }
+        }
+        &-text{
+            transition: .3s ease;
+            &.monthly{
+                color: $pricing-toggle-text-active-color;
+                .pricing-yearly &{
+                    color: $pricing-toggle-text-color;
+                    .is-dark &{
+                        color: $white;
+                    }
+                }
+            }
+            &.yearly{
+                color: $pricing-toggle-text-color;
+                .is-dark &{
+                    color: $white;
+                }
+                .pricing-yearly &{
+                    color: $pricing-toggle-text-active-color;
+                }
+            }
+        }
+    }
+    &-price{
+        &.monthly{
+            .show-yearly &{
+                display: none;
+            }
+        }
+        &.yearly{
+            display: none;
+            .show-yearly &{
+                display: block;
+            }
+        }
+    }
+    &-body{
+        background-color: $white;
+        border-radius: $border-radius-xl - pxToRem(1px);
+        .is-dark &{
+            background-color: $dark;
+        }
+    }
+    &-featured{
+        box-shadow: none;
+        padding: $pricing-featured-border-width;
+        background-color: $accent-color;
+    }
+}

@@ -1,0 +1,843 @@
+////////////////////////////////////////////////////////
+////////     CORE VARIABLES    ///// //////////
+////////////////////////////////////////////////////////
+
+@use "sass:map";
+@use "sass:math";
+
+$assetsRoot:        '../images/';
+
+$prefix:                      bs-;
+
+/////////    COLORS    ///////////
+//////////////////////////////////////
+$white:    #fff;
+$gray-50:  #fcfcfc;
+$gray-100: #f8f9fa;
+$gray-200: #f4f7fa;
+$gray-300: #dce3ed;
+$gray-400: #8b97a6;
+$gray-500: #76808e;
+$gray-600: #6b7989;
+$gray-700: #495057;
+$gray-800: #292962;
+$gray-900: #1B1B3B;
+$black:    #000;
+
+$grays: (
+  "50":  $gray-50,
+  "100": $gray-100,
+  "200": $gray-200,
+  "300": $gray-300,
+  "400": $gray-400,
+  "500": $gray-500,
+  "600": $gray-600,
+  "700": $gray-700,
+  "800": $gray-800,
+  "900": $gray-900
+);
+
+
+$blue:    #6576FF;
+$indigo:  #a425fe;
+$purple:  #6f42c1;
+$pink:    #d63384;
+$red:     #ce5a56;
+$orange:  #fd7e14;
+$yellow:  #f7c239;
+$green:   #198754;
+$teal:    #55b59e;
+$cyan:    #39baf6;
+
+
+$colors: (
+  "blue":       $blue,
+  "indigo":     $indigo,
+  "purple":     $purple,
+  "pink":       $pink,
+  "red":        $red,
+  "orange":     $orange,
+  "yellow":     $yellow,
+  "green":      $green,
+  "teal":       $teal,
+  "cyan":       $cyan,
+  "black":      $black,
+  "white":      $white,
+  "gray":       $gray-600,
+  "gray-dark":  $gray-900
+);
+
+$min-contrast-ratio:   2;
+$color-contrast-dark:      $black;
+$color-contrast-light:     $white;
+
+
+$accent-color:      #6576FF;
+
+$base-color:        $gray-800;
+$base-text:         $gray-600;
+$base-light:        $gray-400;
+
+$base-color-dark:        $gray-50;
+$base-text-dark:         $gray-200;
+$base-light-dark:        $white;
+
+$body-bg:                   $white;
+$body-color:                $base-text;
+$body-dark-color:           $gray-300;
+
+$text-ext-colors: (
+  "base":    $base-text,
+  "heading": $base-color,
+);
+
+$text-ext-colors-dark: (
+  "base":    $base-text-dark,
+  "heading": $base-color-dark,
+);
+
+$primary:       $accent-color;
+$secondary:     $gray-800;
+$success:       $teal;
+$info:          $cyan;
+$warning:       $yellow;
+$danger:        $red;
+$lighter:       $gray-50;
+$light:         $gray-100;
+$dark:          $gray-800;
+$darker:        $gray-900;
+
+$theme-colors: (
+  "primary":    $primary,
+  "secondary":  $secondary,
+  "success":    $success,
+  "info":       $info,
+  "warning":    $warning,
+  "danger":     $danger,
+  "light":      $light,
+  "dark":       $dark,
+  "darker":     $darker
+);
+
+//gradient
+$bg-gradient: (
+  "primary" : linear-gradient(var(--#{$prefix}bg-gradient-angle, 270deg), RGBA(to-rgb(#21FFCB), var(--#{$prefix}bg-opacity, 1))  48.76%, RGBA(to-rgb(#00ACFF), var(--#{$prefix}bg-opacity, 1)) 98.19%),
+  "warning" : linear-gradient(var(--#{$prefix}bg-gradient-angle, 180deg), RGBA(to-rgb(#ff6749), var(--#{$prefix}bg-opacity, 1))  0%, RGBA(to-rgb(#ffb95f), var(--#{$prefix}bg-opacity, 1)) 100%),
+  "info" : linear-gradient(var(--#{$prefix}bg-gradient-angle, 180deg), RGBA(to-rgb(#16a2ff), var(--#{$prefix}bg-opacity, 1))  0%, RGBA(to-rgb(#304ffe), var(--#{$prefix}bg-opacity, 1)) 100%),
+  "dark" : linear-gradient(var(--#{$prefix}bg-gradient-angle, 108.46deg), RGBA(to-rgb(#222c38), var(--#{$prefix}bg-opacity, 1))  0%, RGBA(to-rgb(#101c2a), var(--#{$prefix}bg-opacity, 1)) 100%),
+);
+
+$text-gradient: (
+  "primary" : linear-gradient(var(--#{$prefix}bg-gradient-angle, 270deg), RGBA(to-rgb(#21FFCB), var(--#{$prefix}bg-opacity, 1))  48.76%, RGBA(to-rgb(#00ACFF), var(--#{$prefix}bg-opacity, 1)) 98.19%),
+  "warning" : linear-gradient(var(--#{$prefix}bg-gradient-angle, 180deg), RGBA(to-rgb(#ff6749), var(--#{$prefix}bg-opacity, 1))  0%, RGBA(to-rgb(#ffb95f), var(--#{$prefix}bg-opacity, 1)) 100%),
+  "info" : linear-gradient(var(--#{$prefix}bg-gradient-angle, 180deg), RGBA(to-rgb(#16a2ff), var(--#{$prefix}bg-opacity, 1))  0%, RGBA(to-rgb(#304ffe), var(--#{$prefix}bg-opacity, 1)) 100%),
+  "dark" : linear-gradient(var(--#{$prefix}bg-gradient-angle, 108.46deg), RGBA(to-rgb(#222c38), var(--#{$prefix}bg-opacity, 1))  0%, RGBA(to-rgb(#101c2a), var(--#{$prefix}bg-opacity, 1)) 100%),
+);
+
+//dark section
+$light-heading: $white;
+
+
+$enable-caret:                true;
+$enable-rounded:              true;
+$enable-shadows:              false;
+$enable-gradients:            false;
+$enable-transitions:          true;
+$enable-reduced-motion:       true;
+$enable-smooth-scroll:        true;
+$enable-grid-classes:         true;
+$enable-container-classes:    true;
+$enable-cssgrid:              false;
+$enable-button-pointers:      true;
+$enable-rfs:                  true;
+$enable-validation-icons:     true;
+$enable-negative-margins:     true;
+$enable-deprecation-messages: true;
+$enable-important-utilities:  true;
+
+
+
+$link-color:                              $primary;
+$link-decoration:                         underline;
+$link-shade-percentage:                   20%;
+$link-hover-color:                        shift-color($link-color, $link-shade-percentage);
+$link-hover-decoration:                   null;
+
+
+$stretched-link-pseudo-element:           after;
+$stretched-link-z-index:                  1;
+
+$paragraph-margin-bottom:   1rem;
+
+$grid-columns:                12;
+$grid-gutter-width:           2rem;
+$grid-row-columns:            6;
+
+$container-padding-x: $grid-gutter-width;
+
+$border-width:                1px;
+$border-widths: (
+  1: 1px,
+  2: 2px,
+  3: 3px,
+  4: 4px,
+  5: 5px
+);
+
+$border-style:                solid;
+$border-color:                $gray-300;
+$border-light:                $gray-200;
+$border-color-translucent:    rgba($black, .175);
+
+$border-radius:               .375rem;
+$border-radius-sm:            .25rem;
+$border-radius-md:            .375rem;
+$border-radius-lg:            .5rem;
+$border-radius-xl:            .875rem;
+$border-radius-2xl:           2rem;
+$border-radius-3xl:           3rem;
+$border-radius-4xl:           4rem;
+$border-radius-pill:          50rem;
+
+$box-shadow:                  0 .5rem 1rem rgba($black, .15);
+$box-shadow-tiny:             0px 4px 10px 0px rgba($primary, .05);
+$box-shadow-xs:               0px 4px 12px 0px rgba($primary, .10);
+$box-shadow-sm:               0px 5px 36px rgba($black, .06);
+$box-shadow-lg:               0 1rem 3rem rgba($black, .175);
+$box-shadow-inset:            inset 0 1px 2px rgba($black, .075);
+
+$component-active-color:      $white;
+$component-active-bg:         $primary;
+
+$sizes: (
+    'sm': 1.875rem,
+    'md': 2.125rem,
+    'rg': 2.5rem,
+    'lg': 3rem,
+    'xl': 3.75rem,
+    '2xl': 4.5rem,
+    '3xl': 5rem,
+);
+
+$size-sm:       map.get($sizes,sm);
+$size-md:       map.get($sizes,md);
+$size-rg:       map.get($sizes,rg);
+$size-lg:       map.get($sizes,lg);
+
+$spacer: 1rem;
+$spacers: (
+  0: 0,
+  '0-5': $spacer * .125,
+  1: $spacer * .25,
+  2: $spacer * .5,
+  3: $spacer,
+  4: $spacer * 1.5,
+  5: $spacer * 2,
+  6: $spacer * 3.5,
+  7: $spacer * 4,
+  8: $spacer * 4.5,
+  9: $spacer * 5,
+  10: $spacer * 6,
+  11: $spacer * 7,
+  12: $spacer * 8,
+  'gs': $grid-gutter-width,
+  '10p': 10%,
+  '20p': 20%,
+  '25p': 25%,
+  '30p': 30%,
+  '35p': 35%,
+  '40p': 40%,
+  '45p': 45%,
+  '50p': 50%,
+  '60p': 60%,
+  '70p': 70%,
+  '75p': 75%,
+  '80p': 80%,
+  '90p': 90%,
+  '100p': 100%,
+);
+
+$position-values: (
+  'auto': auto,
+  0: 0,
+  50: 50%,
+  100: 100%
+);
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+);
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1260px
+);
+
+/////////    TYPTOGRAPHY    //////////
+//////////////////////////////////////
+
+$font-family-sans-serif:      'Plus Jakarta Sans', sans-serif;
+
+$font-size-root:              16px;
+$font-size-base:              0.9375rem;
+$font-size-sm:                $font-size-base * .75;
+$font-size-md:                $font-size-base * .875;
+$font-size-rg:                $font-size-base * 1;
+$font-size-lg:                $font-size-base * 1.25;
+
+$font-weight-lighter:         lighter;
+$font-weight-light:           300;
+$font-weight-normal:          400;
+$font-weight-medium:          500;
+$font-weight-semibold:        600;
+$font-weight-bold:            700;
+$font-weight-bolder:          bolder;
+
+$font-weight-base:            $font-weight-normal;
+
+$line-height-base:            1.6;
+$line-height-sm:              1.25;
+$line-height-lg:              2;
+
+$h1-font-size:                3rem;
+$h2-font-size:                2.25rem;
+$h3-font-size:                1.5rem;
+$h4-font-size:                1.25rem;
+$h5-font-size:                1.125rem;
+$h6-font-size:                1rem;
+
+$font-sizes: (
+  1: $h1-font-size,
+  2: $h2-font-size,
+  3: $h3-font-size,
+  4: $h4-font-size,
+  5: $h5-font-size,
+  6: $h6-font-size
+);
+
+$headings-margin-bottom:      $spacer * .5;
+$headings-font-family:        $font-family-sans-serif;
+$headings-font-style:         null;
+$headings-font-weight:        700;
+$headings-line-height:        1.25;
+$headings-color:              $base-color;
+
+
+$display-font-sizes: (
+  1: 7.5rem,
+  2: 6.5rem,
+  3: 5.75rem,
+  4: 5rem,
+  5: 4.5rem,
+  6: 3.75rem
+);
+
+$display-font-family: $font-family-sans-serif;
+$display-font-style:  null;
+$display-font-weight: $headings-font-weight;
+$display-line-height: $headings-line-height;
+
+$lead-font-size:              1.125rem;
+$lead-font-weight:            400;
+
+$small-font-size:             .875em;
+
+$sub-sup-font-size:           .75em;
+
+$text-muted:                  $gray-600;
+
+$initialism-font-size:        $small-font-size;
+
+$blockquote-margin-y:         $spacer;
+$blockquote-font-size:        1.25rem;
+$blockquote-footer-color:     $gray-600;
+$blockquote-footer-font-size: $small-font-size;
+
+
+$field-color:               $base-text;
+$field-border-width:        pxToRem(1px);
+$field-font-size:           0.875rem;
+$field-font-weight:         500;
+$field-line-height:         1.5rem;
+$field-plain-padding-y:     math.div(($size-rg - $field-line-height),2);
+
+$field-bg:                  $white;
+
+$field-disabled-color:        null;
+$field-disabled-border-color: null;
+$field-disabled-bg:           $text-muted;
+$field-readonly-bg:           $text-muted;
+
+$field-border-color:        $border-color;
+$field-focus-border-color:  rgba($accent-color, 0.65); //$border-dark;
+
+$field-padding-y:           $field-plain-padding-y - $field-border-width;
+$field-padding-x:           1.5rem;
+$field-font-family:         $font-family-sans-serif;
+
+$field-focus-width:         .25rem;
+$field-focus-color-opacity: .25;
+$field-focus-blur:          0;
+$field-focus-box-shadow:    0 0 5px 0px rgba(95, 56, 249, 0.20);
+
+$field-plain-padding-y-sm:     math.div(($size-sm - $field-line-height),2);
+$field-padding-y-sm:           $field-plain-padding-y-sm - $field-border-width;
+$field-padding-x-sm:          .75rem;
+$field-font-size-sm:          $font-size-sm;
+
+$field-plain-padding-y-md:     math.div(($size-md - $field-line-height),2);
+$field-padding-y-md:           $field-plain-padding-y-md - $field-border-width;
+$field-padding-x-md:           1.125rem;
+$field-font-size-md:           .875rem;
+
+$field-plain-padding-y-lg:     math.div(($size-lg - $field-line-height),2);
+$field-padding-y-lg:           $field-plain-padding-y-lg - $field-border-width;
+$field-padding-x-lg:           1.5rem;
+$field-font-size-lg:           .875rem;
+
+$field-hint-font-size:         0.813rem;
+$field-icon-font-size:         1rem;
+
+$field-note-font-size:         0.813rem;
+$field-note-color:             $base-light;
+
+$field-height:                 $size-rg;
+$field-height-sm:              $size-sm;
+$field-height-md:              $size-md;
+$field-height-lg:              $size-lg;
+
+$field-border-radius:          $border-radius;
+$field-border-radius-sm:       $border-radius-sm;
+$field-border-radius-md:       $border-radius-md;
+$field-border-radius-lg:       $border-radius-lg;
+
+$textarea-height-sm:           4rem;
+$textarea-height:              5.625rem;
+$textarea-height-lg:           7rem;
+$textarea-height-xl:           10rem;
+
+//checkboxes/radio
+$field-check-label-font-size:   1rem;
+$field-check-label-line-height: 1.75rem;
+
+$field-check-label-gap:        .75rem;
+$field-check-input-size:       1.25rem;
+
+$field-check-label-font-size-sm:   .875rem;
+$field-check-label-line-height-sm: 1.375rem;
+
+$field-check-label-gap-sm:        .75rem;
+$field-check-input-size-sm:       1rem;
+
+$field-check-label-font-size-lg:   1.125rem;
+$field-check-label-line-height-lg: 2rem;
+
+$field-check-label-gap-lg:        .875rem;
+$field-check-input-size-lg:       1.5rem;
+
+$field-check-label-font-size-xl:   1.25rem;
+$field-check-label-line-height-xl: 2.25rem;
+
+$field-check-label-gap-xl:        1rem;
+$field-check-input-size-xl:       2rem;
+
+$field-check-input-bg:                    $white;
+$field-check-input-border:                2px solid $field-border-color;
+$field-check-input-border-radius:         .25em;
+$field-check-radio-border-radius:         50%;
+$field-check-input-focus-border:          $field-focus-border-color;
+
+$field-check-inline-margin-end:    1.25rem;
+
+$field-switch-color:               $field-border-color;
+$field-switch-width:               2.5rem;
+$field-switch-width-sm:            2rem;
+$field-switch-width-lg:            3rem;
+$field-switch-width-xl:            3.75rem;
+
+
+$input-btn-padding-y:         .375rem;
+$input-btn-padding-x:         .75rem;
+$input-btn-font-family:       null;
+$input-btn-font-size:         $font-size-base;
+$input-btn-line-height:       1.5;
+
+$input-btn-focus-width:         .25rem;
+$input-btn-focus-color-opacity: .25;
+$input-btn-focus-color:         rgba($component-active-bg, $input-btn-focus-color-opacity);
+$input-btn-focus-blur:          0;
+$input-btn-focus-box-shadow:    $field-focus-box-shadow;
+
+$input-btn-padding-y-sm:      .25rem;
+$input-btn-padding-x-sm:      .5rem;
+$input-btn-font-size-sm:      $font-size-sm;
+
+$input-btn-padding-y-lg:      .5rem;
+$input-btn-padding-x-lg:      1rem;
+$input-btn-font-size-lg:      $font-size-lg;
+
+
+$input-btn-border-width:      pxToRem(2px);
+
+$btn-border-width:            $input-btn-border-width;
+$btn-line-height:             $field-line-height;
+$btn-padding-y:               (math.div(($size-rg - $btn-line-height),2) - $btn-border-width);
+$btn-padding-x:               $field-padding-x;
+$btn-font-family:             $field-font-family;
+$btn-font-size:               $field-font-size;
+$btn-white-space:             null;
+
+$btn-padding-y-sm:            (math.div(($size-sm - $btn-line-height),2) - $btn-border-width);
+$btn-padding-x-sm:            $field-padding-x-sm;
+$btn-font-size-sm:            $field-font-size-sm;
+
+$btn-padding-y-md:            (math.div(($size-md - $btn-line-height),2) - $btn-border-width);
+$btn-padding-x-md:            $field-padding-x-md;
+$btn-font-size-md:            $field-font-size-md;
+
+$btn-padding-y-lg:            (math.div(($size-lg - $btn-line-height),2) - $btn-border-width);
+$btn-padding-x-lg:            $field-padding-x-lg;
+$btn-font-size-lg:            $field-font-size-lg;
+
+$btn-font-weight:             $field-font-weight;
+$btn-box-shadow:              inset 0 1px 0 rgba($white, .15), 0 1px 1px rgba($black, .075);
+$btn-focus-width:             $input-btn-focus-width;
+$btn-focus-box-shadow:        $input-btn-focus-box-shadow;
+$btn-disabled-opacity:        .65;
+$btn-active-box-shadow:       inset 0 3px 5px rgba($black, .125);
+
+$btn-link-color:              var(--#{$prefix}link-color);
+$btn-link-hover-color:        var(--#{$prefix}link-hover-color);
+$btn-link-disabled-color:     $gray-600;
+
+
+$btn-border-radius:           $border-radius;
+$btn-border-radius-sm:        $border-radius-sm;
+$btn-border-radius-md:        $border-radius-md;
+$btn-border-radius-lg:        $border-radius-lg;
+$btn-border-radius-xl:        $border-radius-xl;
+
+$btn-transition:              color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+
+$btn-hover-bg-shade-amount:       15%;
+$btn-hover-bg-tint-amount:        15%;
+$btn-hover-border-shade-amount:   20%;
+$btn-hover-border-tint-amount:    10%;
+$btn-active-bg-shade-amount:      20%;
+$btn-active-bg-tint-amount:       20%;
+$btn-active-border-shade-amount:  25%;
+$btn-active-border-tint-amount:   10%;
+
+
+// Forms
+
+$form-text-margin-top:                  .25rem;
+$form-text-font-size:                   $small-font-size;
+$form-text-font-style:                  null;
+$form-text-font-weight:                 null;
+$form-text-color:                       $text-muted;
+
+$form-label-margin-bottom:              .5rem;
+$form-label-font-size:                  $small-font-size;
+$form-label-font-style:                 null;
+$form-label-font-weight:                500;
+$form-label-color:                      null;
+
+$input-padding-y:                       $field-padding-y;
+$input-padding-x:                       $field-padding-x;
+$input-font-family:                     $input-btn-font-family;
+$input-font-size:                       $field-font-size;
+$input-font-weight:                     $font-weight-base;
+$input-line-height:                     $field-line-height;
+
+$input-padding-y-sm:                    $field-padding-y-sm;
+$input-padding-x-sm:                    $field-padding-x-sm;
+$input-font-size-sm:                    $field-font-size-sm;
+
+$input-padding-y-lg:                    $field-padding-y-lg;
+$input-padding-x-lg:                    $field-padding-x-lg;
+$input-font-size-lg:                    $field-font-size-lg;
+
+$input-bg:                              $field-bg;
+
+$input-disabled-color:                  $field-disabled-color;
+$input-disabled-bg:                     $field-disabled-bg;
+$input-disabled-border-color:           $field-disabled-border-color;
+
+$input-color:                           $field-color;
+$input-border-color:                    $field-border-color;
+$input-border-width:                    $field-border-width;
+$input-box-shadow:                      $box-shadow-inset;
+
+$input-border-radius:                   $field-border-radius;
+$input-border-radius-sm:                $field-border-radius-sm;
+$input-border-radius-lg:                $field-border-radius-lg;
+
+$input-focus-bg:                        $input-bg;
+$input-focus-border-color:              $field-focus-border-color;
+$input-focus-color:                     $input-color;
+$input-focus-width:                     $input-btn-focus-width;
+$input-focus-box-shadow:                $input-btn-focus-box-shadow;
+
+$input-placeholder-color:               $base-light;
+$input-plaintext-color:                 $base-text;
+
+$input-height-border:                   $input-border-width * 2;
+
+$input-height-inner:                    $input-line-height + $field-plain-padding-y*2;
+$input-height-inner-half:               math.div($input-height-inner,2);
+$input-height-inner-quarter:            math.div($input-height-inner,4);
+
+$input-height:                          $field-height;
+$input-height-sm:                       $field-height-sm;
+$input-height-lg:                       $field-height-lg;
+
+$input-textarea-height:                 $input-height*2;
+$input-textarea-height-sm:              $input-height-sm*2;
+$input-textarea-height-lg:              $input-height-lg*2.5;
+
+$input-control-icon-gap-x:                  1rem;
+$input-control-icon-input-control-x:        2.5rem;
+$input-control-icon-color:                  $base-text;
+
+/////////   FORM CHECK    //////////
+//////////////////////////////////////
+$form-check-input-width:                  1.25rem;
+$form-check-min-height:                   $font-size-base * $line-height-base;
+$form-check-padding-start:                $form-check-input-width;
+$form-check-margin-bottom:                .125rem;
+$form-check-label-color:                  null;
+$form-check-label-cursor:                 null;
+$form-check-transition:                   null;
+
+$form-check-label-font-size:      1rem;
+$form-check-label-line-height:    1.4rem;
+
+$form-check-label-gap:            0.5rem;
+
+$form-check-label-font-size-lg:   1.125rem;
+$form-check-label-line-height-lg: 2rem;
+
+$form-check-label-gap-lg:        .875rem;
+$form-check-input-size-lg:       1.5rem;
+
+$form-check-label-font-size-xl:   1.25rem;
+$form-check-label-line-height-xl: 2.25rem;
+
+$form-check-label-gap-xl:        1rem;
+$form-check-input-size-xl:       2rem;
+
+
+$form-check-input-active-filter:          brightness(90%);
+
+$form-check-input-bg:                     $input-bg;
+$form-check-input-border:                 2px solid $input-border-color;
+$form-check-input-border-radius:          .25em;
+$form-check-radio-border-radius:          50%;
+$form-check-input-focus-border:           $input-focus-border-color;
+$form-check-input-focus-box-shadow:       $input-btn-focus-box-shadow;
+
+$form-check-input-checked-color:          $white;
+$form-check-input-checked-bg-color:       $accent-color;
+$form-check-input-checked-border-color:   $form-check-input-checked-bg-color;
+$form-check-input-checked-bg-image:       url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path fill='none' stroke='#{$form-check-input-checked-color}' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/></svg>");
+$form-check-radio-checked-bg-image:       url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='2' fill='#{$form-check-input-checked-color}'/></svg>");
+
+$form-check-input-indeterminate-color:          $accent-color;
+$form-check-input-indeterminate-bg-color:       $accent-color;
+$form-check-input-indeterminate-border-color:   $form-check-input-indeterminate-bg-color;
+$form-check-input-indeterminate-bg-image:       url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path fill='none' stroke='#{$form-check-input-indeterminate-color}' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10h8'/></svg>");
+
+$form-check-input-disabled-opacity:        .5;
+$form-check-label-disabled-opacity:        $form-check-input-disabled-opacity;
+$form-check-btn-check-disabled-opacity:    $gray-500;
+
+$form-check-inline-margin-end:    1rem;
+
+// form switch
+$form-switch-color:               $input-border-color;
+
+$form-switch-width:               2rem;
+$form-switch-width-lg:            3rem;
+$form-switch-width-xl:            4rem;
+
+$form-switch-padding-start:       $form-switch-width + .5rem;
+$form-switch-bg-image:            url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='3' fill='#{$form-switch-color}'/></svg>");
+$form-switch-border-radius:       $form-switch-width;
+$form-switch-transition:          background-position .15s ease-in-out;
+
+$form-switch-focus-color:         $input-focus-border-color;
+$form-switch-focus-bg-image:      url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='3' fill='#{$form-switch-focus-color}'/></svg>");
+
+$form-switch-checked-color:       $white;
+$form-switch-checked-bg-image:    url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='3' fill='#{$form-switch-checked-color}'/></svg>");
+$form-switch-checked-bg-position: right center;
+
+
+$card-spacer-y:                     2rem;
+$card-spacer-x:                     2rem;
+$card-title-spacer-y:               $spacer * .5;
+$card-border-width:                 1px;
+$card-border-color:                 $border-color;
+$card-border-radius:                $border-radius;
+$card-box-shadow:                   null;
+$card-inner-border-radius:          subtract($card-border-radius, $card-border-width);
+$card-cap-padding-y:                $card-spacer-y * .5;
+$card-cap-padding-x:                $card-spacer-x;
+$card-cap-bg:                       rgba($black, .03);
+$card-cap-color:                    null;
+$card-height:                       null;
+$card-color:                        null;
+$card-bg:                           $white;
+$card-img-overlay-padding:          $spacer;
+$card-group-margin:                 $grid-gutter-width * .5;
+
+
+$accordion-padding-y:                     1.5rem;
+$accordion-padding-x:                     1.25rem;
+$accordion-color:                         $body-color;
+$accordion-bg:                            $body-bg;
+$accordion-border-width:                  $border-width;
+$accordion-border-color:                  var(--#{$prefix}border-color);
+$accordion-border-radius:                 $border-radius;
+$accordion-inner-border-radius:           calc($accordion-border-radius - $accordion-border-width);
+
+$accordion-body-padding-y:                $accordion-padding-y;
+$accordion-body-padding-x:                $accordion-padding-x;
+
+$accordion-button-padding-y:              $accordion-padding-y;
+$accordion-button-padding-x:              $accordion-padding-x;
+$accordion-button-color:                  $accordion-color;
+$accordion-button-bg:                     var(--#{$prefix}accordion-bg);
+$accordion-transition:                    $btn-transition, border-radius .15s ease;
+$accordion-button-active-bg:              tint-color($component-active-bg, 90%);
+$accordion-button-active-color:           shade-color($primary, 10%);
+
+$accordion-button-focus-border-color:     $input-focus-border-color;
+$accordion-button-focus-box-shadow:       $btn-focus-box-shadow;
+
+$accordion-icon-width:                    1.25rem;
+$accordion-icon-color:                    $accordion-button-color;
+$accordion-icon-active-color:             $accordion-button-active-color;
+$accordion-icon-color-dark:               $white;
+$accordion-icon-active-color-dark:        $white;
+$accordion-icon-transition:               transform .2s ease-in-out;
+$accordion-icon-transform:                rotate(-180deg);
+
+$accordion-button-icon:                   url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='#{$accordion-icon-color}'><path d='M12 15.5c-0 0-0.001 0-0.001 0-0.276 0-0.525-0.112-0.706-0.293l-5-5c-0.174-0.18-0.281-0.425-0.281-0.695 0-0.552 0.448-1 1-1 0.27 0 0.515 0.107 0.695 0.281l4.293 4.293 4.293-4.293c0.18-0.174 0.425-0.281 0.695-0.281 0.552 0 1 0.448 1 1 0 0.27-0.107 0.515-0.281 0.695l-5 5c-0.18 0.181-0.43 0.293-0.706 0.293-0 0-0.001 0-0.001 0h0z'></path></svg>");
+$accordion-button-active-icon:            url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='#{$accordion-icon-active-color}'><path d='M12 15.5c-0 0-0.001 0-0.001 0-0.276 0-0.525-0.112-0.706-0.293l-5-5c-0.174-0.18-0.281-0.425-0.281-0.695 0-0.552 0.448-1 1-1 0.27 0 0.515 0.107 0.695 0.281l4.293 4.293 4.293-4.293c0.18-0.174 0.425-0.281 0.695-0.281 0.552 0 1 0.448 1 1 0 0.27-0.107 0.515-0.281 0.695l-5 5c-0.18 0.181-0.43 0.293-0.706 0.293-0 0-0.001 0-0.001 0h0z'></path></svg>");
+
+$accordion-button-icon-dark:                   url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='#{$accordion-icon-color-dark}'><path d='M12 15.5c-0 0-0.001 0-0.001 0-0.276 0-0.525-0.112-0.706-0.293l-5-5c-0.174-0.18-0.281-0.425-0.281-0.695 0-0.552 0.448-1 1-1 0.27 0 0.515 0.107 0.695 0.281l4.293 4.293 4.293-4.293c0.18-0.174 0.425-0.281 0.695-0.281 0.552 0 1 0.448 1 1 0 0.27-0.107 0.515-0.281 0.695l-5 5c-0.18 0.181-0.43 0.293-0.706 0.293-0 0-0.001 0-0.001 0h0z'></path></svg>");
+$accordion-button-active-icon-dark:            url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='#{$accordion-icon-active-color-dark}'><path d='M12 15.5c-0 0-0.001 0-0.001 0-0.276 0-0.525-0.112-0.706-0.293l-5-5c-0.174-0.18-0.281-0.425-0.281-0.695 0-0.552 0.448-1 1-1 0.27 0 0.515 0.107 0.695 0.281l4.293 4.293 4.293-4.293c0.18-0.174 0.425-0.281 0.695-0.281 0.552 0 1 0.448 1 1 0 0.27-0.107 0.515-0.281 0.695l-5 5c-0.18 0.181-0.43 0.293-0.706 0.293-0 0-0.001 0-0.001 0h0z'></path></svg>");
+
+// Dropdowns
+$dropdown-min-width:                10rem;
+$dropdown-padding-x:                0;
+$dropdown-padding-y:                .5rem;
+$dropdown-spacer:                   .125rem;
+$dropdown-font-size:                $font-size-base;
+$dropdown-color:                    $body-color;
+$dropdown-bg:                       $white;
+$dropdown-border-color:             var(--#{$prefix}border-color-translucent);
+$dropdown-border-radius:            $border-radius;
+$dropdown-border-width:             $border-width;
+$dropdown-inner-border-radius:      subtract($dropdown-border-radius, $dropdown-border-width);
+$dropdown-divider-bg:               $dropdown-border-color;
+$dropdown-divider-margin-y:         $spacer * .5;
+$dropdown-box-shadow:               $box-shadow;
+
+$dropdown-link-color:               $gray-900;
+$dropdown-link-hover-color:         shade-color($dropdown-link-color, 10%);
+$dropdown-link-hover-bg:            $gray-200;
+
+$dropdown-link-active-color:        $component-active-color;
+$dropdown-link-active-bg:           $component-active-bg;
+
+$dropdown-link-disabled-color:      $gray-500;
+
+$dropdown-item-padding-y:           $spacer * .25;
+$dropdown-item-padding-x:           $spacer;
+
+$dropdown-header-color:             $gray-600;
+$dropdown-header-padding-x:         $dropdown-item-padding-x;
+$dropdown-header-padding-y:         $dropdown-padding-y;
+$dropdown-header-padding:           $dropdown-header-padding-y $dropdown-header-padding-x;
+
+$dropdown-dark-color:               $gray-300;
+$dropdown-dark-bg:                  $dark;
+$dropdown-dark-border-color:        $dropdown-border-color;
+$dropdown-dark-divider-bg:          $dropdown-divider-bg;
+$dropdown-dark-box-shadow:          null;
+$dropdown-dark-link-color:          $dropdown-dark-color;
+$dropdown-dark-link-hover-color:    $white;
+$dropdown-dark-link-hover-bg:       rgba($white, .15);
+$dropdown-dark-link-active-color:   $dropdown-link-active-color;
+$dropdown-dark-link-active-bg:      $dropdown-link-active-bg;
+$dropdown-dark-link-disabled-color: $gray-500;
+$dropdown-dark-header-color:        $gray-500;
+
+// For Custom Components
+////////////////////////
+
+// header
+$header-logo-height:             $size-rg;
+$header-main-gap-y:              .75rem;
+$header-main-gap-y-shrinked:     0;
+$header-main-border:             $border-light;
+$header-main-border-thickness:   1px;
+$header-menu-overlay:            rgba($black, .4);
+$header-menu-overlay-transition :400ms ease;
+$header-main-bg:                 $white;
+$header-main-bg-dark:            lighten($darker,3%);
+
+// menu
+$menu-link-color:                $base-color;
+$menu-link-light-color:          $white;
+$menu-link-hover-color:          $accent-color;
+$menu-link-light-hover-color:    $accent-color;
+$menu-link-font-size:            .875rem;
+$menu-link-font-weight:          500;
+$menu-link-line-height:          1.25rem;
+$menu-link-gap-y:                0.5rem;
+$menu-link-gap-y-ext:            1.25rem;
+$menu-link-gap-x:                1.5rem;
+$menu-link-gap-x-ext:            1rem;
+
+$menu-sub-link-font-size:        .8125rem;
+$menu-sub-link-gap-y:            0.5rem;
+$menu-sub-link-gap-y-ext:        0.75rem;
+$menu-sub-link-gap-x:            1.5rem;
+$menu-sub-link-gap-x-ext:        1.5rem;
+
+$menu-dropdown-bg:                    darken($header-main-bg,3%);
+$menu-dropdown-bg-ext:                $header-main-bg;
+$menu-dropdown-bg-dark:               lighten($header-main-bg-dark,2%);
+$menu-dropdown-bg-dark-ext:           lighten($header-main-bg-dark,2%);
+
+$menu-button-font-size:          .8125rem;
+$menu-button-gap-x:              .75rem;
+$menu-button-gap-x-ext:          1rem;
+
+//pricing
+$pricing-featured-border-width: 3px;
+
+$pricing-toggle-border-width:       .125rem;
+$pricing-toggle-border-color:       $accent-color;
+$pricing-toggle-bg:                 $accent-color;
+$pricing-toggle-height:             2rem;
+$pricing-toggle-width:              4rem;
+
+$pricing-toggle-text-color:         $base-color;
+$pricing-toggle-text-active-color:  $accent-color;
+
+$pricing-toggle-ball-bg:            $white;
+$pricing-toggle-ball-size:          1.25rem;
+$pricing-toggle-ball-gap:           .25rem;

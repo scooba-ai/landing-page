@@ -1,0 +1,32 @@
+{
+  "name": "CopyGen",
+  "version": "1.2.0",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Softnio",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@popperjs/core": "^2.11.6",
+    "bootstrap": "^5.2.2",
+    "masonry-layout": "^4.2.2",
+    "pristinejs": "^1.0.0",
+    "swiper": "^8.4.4",
+    "typed.js": "^2.0.13"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.19.1",
+    "@babel/preset-env": "^7.19.1",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-file-include": "^2.3.0",
+    "gulp-minifier": "^3.5.0",
+    "gulp-run-command": "^0.0.10",
+    "gulp-sass": "^5.1.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-watch": "^5.0.1",
+    "sass": "^1.54.9"
+  }
+}

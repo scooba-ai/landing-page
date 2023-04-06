@@ -1,0 +1,118 @@
+.btn-md {
+    @include button-size($btn-padding-y-md, $btn-padding-x-md, $btn-font-size-md, $btn-border-radius-md);
+}
+
+@mixin button-soft-variant(
+    $color,
+    $background: mix($color, $white, 15%),
+    $border: transparent
+  ) {
+    --#{$prefix}btn-color: #{$color};
+    --#{$prefix}btn-bg: #{$background};
+    --#{$prefix}btn-border-color: #{$border};
+}
+
+@mixin button-soft-outline-variant(
+    $color,
+    $background: mix($color, $white, 15%),
+    $border: mix($color, $white, 40%)
+  ) {
+    --#{$prefix}btn-color: #{$color};
+    --#{$prefix}btn-bg: #{$background};
+    --#{$prefix}btn-border-color: #{$border};
+}
+
+@each $color, $value in $theme-colors {
+    .btn-soft.btn-#{$color} {
+        @include button-soft-variant($value);
+    }
+    .btn-soft.btn-outline-#{$color} {
+        @include button-soft-outline-variant($value);
+    }
+}
+
+.btn{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    img{
+        height: 1rem;
+    }
+    .icon{
+        font-size: 1.3em;
+        line-height: $field-line-height;
+    }
+    .icon + span,span + .icon{
+        margin-left: .625rem;
+    }
+    &-icon{
+        --#{$prefix}btn-padding-x:0;
+        width: $size-rg;
+        &.btn{
+            &-sm{
+                width: $size-sm;
+            }
+            &-md{
+                width: $size-md;
+            }
+            &-lg{
+                width: $size-lg;
+            }
+        }
+    }
+    &-block{
+        width: 100%;
+    }
+    &-light,
+    &-outline-light {
+        color: $base-color;
+    }
+    &-list{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        margin-top: calc(-1 * var(--bs-gutter-y));
+        margin-right: calc(-0.5 * var(--bs-gutter-x));
+        margin-left: calc(-0.5 * var(--bs-gutter-x));
+        > *{
+            padding-right: calc(var(--bs-gutter-x) * 0.5);
+            padding-left: calc(var(--bs-gutter-x) * 0.5);
+            margin-top: var(--bs-gutter-y);
+        }
+        &-inline{
+            flex-direction: row;
+        }
+        .text-center &{
+            justify-content: center;
+        }
+        @include media-breakpoint-up(sm){
+            .text-sm-start &{
+                justify-content: flex-start;
+            }
+        }
+        @include media-breakpoint-up(md){
+            .text-md-start &{
+                justify-content: flex-start;
+            }
+        }
+        @include media-breakpoint-up(lg){
+            .text-lg-start &{
+                justify-content: flex-start;
+            }
+        }
+        @include media-breakpoint-up(xl){
+            .text-xl-start &{
+                justify-content: flex-start;
+            }
+        }
+        @include media-breakpoint-up(xxl){
+            .text-xxl-start &{
+                justify-content: flex-start;
+            }
+        }
+    }
+}
+
+.is-dark [class*="btn-outline"]:not(.btn-soft){
+    --#{$prefix}btn-color: #{$white};
+}

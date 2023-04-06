@@ -1,0 +1,12 @@
+.card{
+    .is-dark &{
+        $white-rgb: to-rgb($white);
+        --bs-card-bg: rgba(#{$white-rgb}, .04);
+    }
+    &-hover-translate{
+        transition: all .3s ease;
+        &:hover{
+            transform: translateY(-10px);
+        }
+    }
+}
